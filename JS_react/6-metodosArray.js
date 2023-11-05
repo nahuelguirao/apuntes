@@ -1,5 +1,10 @@
 let numeros = [1,2,3,4,5];
 
+let nombres = ['Nahuel','Carola','Valentino'];
+
+//FOR EACH funciona como método de arrays
+nombres.forEach((nombre) => console.log(nombre));
+
 //FIND (Busca un valor en particular, devuelve el primero que encuentre)
 const resultado = numeros.find((numero) => numero > 2);
 const resultado1 = numeros.find((numero) => numero == 3); //Si lo encuentra devuelve el valor que se busca (3) sino undefined
