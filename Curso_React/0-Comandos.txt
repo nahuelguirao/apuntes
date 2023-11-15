@@ -1,0 +1,11 @@
+#Desde el powershell cambiando la ruta que quiero inicio un proyecto: 
+npm create vite@latest (crea un proyecto utilizando la última versión de vite)
+
+#Para abrir la aplicación
+npm run dev
+
+#Convierte el proyecto terminado a un HTML y JS
+npm run build
+
+#Iniciar un proyecto
+npm install
