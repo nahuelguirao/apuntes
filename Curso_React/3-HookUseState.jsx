@@ -10,6 +10,7 @@ import { useState } from 'react'
 
 export const ContadorApp = ({ value }) => {
     //Ejemplo de HOOK / useState => [nombreVariable, metodo (para cambiar la constante)] = useState(variable a modificar)
+    //El hook useState tiene en cuenta el estado del elemento para modificarlo reactivamente
     const [contador, setContador] = useState(value)
 
     const handleClick = () => {
