@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useForm } from '../hooks/useForm'
 
 export const Form = () => {
@@ -14,6 +15,12 @@ export const Form = () => {
         e.preventDefault()
         console.log(formState)
     }
+
+    //El hook useRef se utiliza para guardar referencia sobre un elemento del DOM
+    const focusRef = useRef()
+    useEffect(() => {
+        focusRef.current.focus()
+    }, [])
 
     return (
         <form onSubmit={sendForm}>
@@ -34,6 +41,7 @@ export const Form = () => {
             <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input
+                    ref={focusRef}
                     type="password"
                     className="form-control"
                     name="password"
