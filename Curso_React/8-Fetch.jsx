@@ -1,36 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
-export const ConsumoApi = () => {
-    //Hook para manejar el estado de la lista de usuarios
-    const [usuarios, setUsuarios] = useState([])
+export const UsersApp = () => {
+    const [users, setUsers] = useState([])
 
-    //LLamdo a la API y trayendo la data de usuarios
-    const llamadoUsuario = async () => {
+    const fetchUsers = async () => {
         try {
-            //Igualo a una variable el llamado a la API 
-            const respuesta = await fetch('https://jsonplaceholder.typicode.com/users')
-            //Paso los datos a formato JSON
-            const datos = await respuesta.json()
-            //Utilizo el hook de usuarios para agregar los datos
-            setUsuarios(datos)
+            const response = await fetch('https://jsonplaceholder.typicode.com/users')
+            const data = await response.json()
+            setUsers(data)
         } catch (e) {
-            //En caso de error
             console.error(e)
         }
     }
-
-    //La funcion llamdoUsuario no se llamada directamente (Porque si no se ejecuta en bucle infinito de promesas y esta MAL)
-    //Por ello se usa el hook useEffect (para realizar efectos secundarios como llamados a API's o manipulación del DOM)
+    //Para que no se ejecute infinitamente la llamada
+    //useEffect( () => {función}, [dependencia]) La dependencia hace referencia a lo que tiene que cambiar para que se ejecute nuevamente la funcion en este caso el fetchUsers
     useEffect(() => {
-        //De esta forma se ejecutaria una única vez el llamado Fetch
-        llamadoUsuario()
-    }, []) //La lista del final vacía serian las dependencias
+        fetchUsers()
+    }, [])
 
     return (
         <>
-            <h1>Lista usuarios:</h1>
+            <h1>Lista Usuarios: </h1>
             <ul>
-                {usuarios.map(usuario => <li key={usuario.id}>Nombre: {usuario.name}</li>)}
+                {users.map(user => <li key={user.id}>{user.name}</li>)}
             </ul>
         </>
     )

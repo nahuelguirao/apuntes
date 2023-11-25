@@ -1,6 +1,3 @@
-//Sirven para pasar valores de un componente padre a un componente hijo
-
-
 //En el componente padre se pasan las props:
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -24,13 +21,17 @@ export const PrimerComponente = ({ titulo, subtitulo }) => {
 }
 
 
-//Hacer que un prop sea requerido y definido el tipo + default
+//Importo PropTypes
 import PropTypes from 'prop-types'
+//Configurar el tipo de props con PropTypes
 PrimerComponente.propTypes = {
+    //Son requeridos 
     titulo: PropTypes.string.isRequired,
     subtitulo: PropTypes.number.isRequired,
 }
+
 PrimerComponente.defaultProps = {
+    //Seteo de valores por defecto
     titulo: 'Titulo por defecto',
     subtitulo: 'Subtitulo por defecto',
 }
