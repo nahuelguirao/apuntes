@@ -18,12 +18,19 @@ export const UsersApp = () => {
         fetchUsers()
     }, [])
 
+    //En este caso no es necesario el useEffect porque se utiliza una función directamente para que se ejecute y ademas no hay cambio de alguna dependencia
+    const handleFetch = () => {
+        fetchUsers()
+    }
+
+
     return (
         <>
             <h1>Lista Usuarios: </h1>
             <ul>
                 {users.map(user => <li key={user.id}>{user.name}</li>)}
             </ul>
+            <button onClick={handleFetch}>MOSTRAR</button>
         </>
     )
 }
