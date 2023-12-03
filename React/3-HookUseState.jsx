@@ -9,8 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 import { useState } from 'react'
 
 export const ContadorApp = ({ value }) => {
-    //Ejemplo de HOOK / useState => [nombreVariable, metodo (para cambiar la constante)] = useState(variable a modificar)
-    //El hook useState tiene en cuenta el estado del elemento para modificarlo reactivamente
+    //Ejemplo de HOOK / useState => [variable, setVariable] = useState(estado Inicial)  / setVariable es un metodo para poder modificar la constante 'variable'
     const [contador, setContador] = useState(value)
 
     const handleClick = () => {

@@ -20,15 +20,3 @@ export const PrimerComponente = () => {
 
 //ACORDARSE DE IMPORTAR E INCLUIR EL COMPONENTE EN MAIN.JSX
 
-
-// Metodo viejo (snipet cc)
-// class PrrimerComponente extends Component {
-//     state = {}
-//     render() {
-//         return (
-//             <h1>Hola mundo!</h1>
-//         );
-//     }
-// }
-
-// export default PrrimerComponente;

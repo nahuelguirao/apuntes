@@ -4,8 +4,8 @@ npm create vite@latest (crea un proyecto utilizando la última versión de vite)
 #Para abrir la aplicación
 npm run dev
 
-#Convierte el proyecto terminado a un HTML y JS
+#Convierte el proyecto terminado a un HTML y JS para deploy
 npm run build
 
 #Iniciar un proyecto
-npm install
+npm install / npm i
