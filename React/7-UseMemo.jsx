@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 //Cada vez que se toca el boton show / hide se calcula nuevamente el getCalculo innecesariamente
-//Por ello se puede utilizar el hook useMemo para que se memorize un proceso hasta que cambie la dependencia
+//Por ello se puede utilizar el hook useMemo para que se memorice un proceso hasta que cambie la dependencia
 
 export const CalculosPesados = () => {
     //En este caso memoriza el calculo y SOLO se modifica/actualiza si cambia la dependencia, en este caso la lista de números

@@ -24,17 +24,14 @@ const tareaReducer = (state = initialState, action = {}) => {
 }
 
 export const ListaTareas = () => {
-    //UseReducer(primero se pasa el reducer, luego el estado inicial)
-    //En este caso tareas = al initial state (y a medida que cambie se actualiza similar a useState)
+    //UseReducer recibe 2 parametros 1 reducer y un estado inicial, el reducer a su vez recibe una action conjunto al estado inicial
+    //luego devuelve el estado actual (al principio = al estado inicial) y un dispatch para poder ejecutar las acciones
     const [tareas, dispatch] = useReducer(tareaReducer, initialState)
-    //Dispatch se utiliza para ejecutar acciones en tareas (o lo que se el estado inicial)
 
-    //Importo el hook personalizado useForm
     const { formState, onInputChange } = useForm({ tarea: '' })
 
     const agregarTarea = (e) => {
         e.preventDefault()
-        //Si el input esta vacío no agrega la tarea
         if (formState.tarea < 1) return
         //Armo el objeto para enviar con los datos de la nueva tarea
         const tareaEntrante = {

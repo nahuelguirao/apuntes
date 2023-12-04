@@ -43,7 +43,7 @@ export const App = () => {
     )
 }
 
-//4° ¿Como consumo los datos desde un child? con UseContext
+//4° ¿Como consumo los datos desde un child? con el HOOK => useContext(PasarleElContexto)
 import React, { useContext } from 'react'
 import { UsuarioContext } from '../context/UsuarioContext'
 
