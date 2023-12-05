@@ -9,3 +9,23 @@ npm run build
 
 #Iniciar un proyecto
 npm install / npm i
+
+
+#¿Como inicializar un proyecto desde 0/Vanilla a React?
+
+1° => npm install @vitejs/plugin-react -E  #Para la integración de react
+2° => npm install react react-dom -E #Instala react y react-dom 
+3° => creo archivo vite.config.js con:
+    import {defineConfig} from 'vite'
+    import react from '@vitejs/plugin-react'
+
+    expor default defineConfig({
+        plugins: [react()]
+    })
+
+4° => en el main.js elimino todo y lo transformo a jsx main.jsx (recordar cambiar en el html tambien el script)
+    import { createRoot } from 'react-dom/client' 
+    import { App } from './src/App.jsx'
+
+    createRoot(document.getElementById('app'))
+    root.render(<App />)
