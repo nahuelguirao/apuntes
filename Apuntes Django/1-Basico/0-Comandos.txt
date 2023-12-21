@@ -1,0 +1,14 @@
+Creacion de entorno virtual =>  py -m venv 'nombre entorno'
+Activar entorno => nombreEntorno/scripts/activate
+
+1- Instalar Django => pip install Django
+2- Iniciar proyecto => django-admin startproject 'nombre_proyecto'
+3- Migrar cambios en los modelos => 1° py manage.py migrate / 2° py manage.py makemigrations
+4- Iniciar Servidor => py manage.py runserver
+
+
+Iniciar una app (si quiero verificar si la app esta instalada correctamente => py manage.py check 'nombre app')
+py manage.py start app 'nombre app'
+
+IMPORTANTE! Recordar agregar la app en el settings 
+(Simplemente se agrega el nombre de la app dentro de 'installed_apps')

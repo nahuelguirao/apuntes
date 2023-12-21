@@ -1,6 +1,6 @@
 #Se utiliza la estructura: <tipo_variable:nombre> 
 
-#En la pestaña de url
+#En la pestaña de url  => <tipoDato:nombreVarialbe>
 urlpatterns = [
     path('adulto/<int:edad>', views.adulto, name='adulto')
 ]
@@ -11,4 +11,3 @@ def adulto(request, edad):
         print('Es mayor de edad')
     else:
         print('No es mayor de edad')
-        
