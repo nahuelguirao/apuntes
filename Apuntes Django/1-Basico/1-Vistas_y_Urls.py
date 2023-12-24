@@ -1,3 +1,8 @@
+#RECORDAR que es buena practica que cada APP tenga su modulo de url's propio
+#From django.urls import path, include 
+# para ello hay que agregar las rutas de la app a la ruata del proyecto general => path('/rutasSecundarias/', include('app.urls')')
+
+
 from django.http import HttpResponse
 
 #Toda vista recibe un request siempre
