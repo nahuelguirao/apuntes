@@ -1,0 +1,21 @@
+  header {
+      height: 15vh;
+      position: sticky;
+      top: 0;
+
+      animation: animateHeader linear both;
+      /* El parametro que se utiliza es el scroll vertical sobre el root que seria todo el documento */
+      animation-timeline: scroll(root block);
+      /* Rango donde queremos que se complete toda la animación (tanto mas pixeles mas abajo tendra que scrollear el usuario para que se complete la animación */
+      animation-range: 0 500px;
+  }
+
+  /* Directamente ponemos lo que quiero lograr  */
+  @keyframes animateHeader {
+      to {
+          background-color: rgba(255, 255, 255, .4);
+          font-size: 2rem;
+          color: black;
+          height: 10vh;
+      }
+  }

@@ -1,0 +1,3 @@
+Como crear un super usuario
+
+py manage.py createsuperuser

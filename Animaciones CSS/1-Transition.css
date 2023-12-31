@@ -1,0 +1,36 @@
+/* Una transición se produce cuando cambia el estado de un elemento HTML, en este ejemplo es el .pulser cuando se hace hover*/
+
+.pulser {
+    width: 30px;
+    height: 30px;
+    background-color: #09f;
+    border-radius: 100vmax;
+
+    /* Duración de la transición */
+    transition-duration: 2s;
+
+    /* A cual propiedad queremos que se ejecute el transition (por defecto tiene all), los demas se ejecutarian de golpe (sin el tiempo de transición*/
+    transition-property: scale, background-color;
+
+    /* Permite gestionar el 'ease (que parte de la transición se toma con calma)' de la transicion por defecto viene linear (puede utilizarse ease, ease-in y demas */
+    transition-timing-function: ease-in;
+    /* ease-in inicia rapidamente y al final lento */
+    /* ease-out inicia lentamente y termina rapidamente */
+    /* ease-in-out acelera la transición en el medio */
+
+    /* Tambien se puede usar para gestionar los pasos que tendra una transición (util para loaders por ejemplo) */
+    transition-timing-function: steps(10);
+
+    /* Tiempo en el que tardara en inciar la transición */
+    transition-delay: .5s;
+
+
+    /* FORMA CORTA IMPORTANTE! => primero property, duration, timingFunction y delay */
+    transition: all 300ms ease-in-out 300ms;
+}
+
+.pulser:hover {
+    scale: 2;
+    background-color: purple;
+    transition-duration: 1s;
+}

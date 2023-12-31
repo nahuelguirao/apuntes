@@ -1,0 +1,24 @@
+/* En este caso progress seria la barra de progreso */
+.progress {
+  position: fixed;
+  top: 0%;
+  height: 20px;
+  background-color: greenyellow;
+  width: 0%;
+
+  animation: progress-scroll auto linear;
+  /* root hace referencia a cual va a ser el parametro para tener ne cuenta el scroll total y block hace referencia para que sea en vertical (es el valor por defecto) */
+  animation-timeline: scroll(root block);
+}
+
+@keyframes progress-scroll {
+  from {
+    width: 0%;
+    background-color: yellow;
+  }
+
+  to {
+    width: 100%;
+    background-color: green;
+  }
+}

@@ -1,0 +1,42 @@
+/* Las animaciones las utilzamos con KEY FRAMES */
+.pulser {
+    /* Se le pasa el nombre de la animacion */
+    animation: nombreAnimacion;
+
+    /* Duracion */
+    animation-duration: 2s;
+
+    /* Forma del ease  */
+    animation-timing-function: ease-in-out;
+
+    /* Delay */
+    animation-delay: 300ms;
+
+    /* Cantidad de veces que se repite la animacion */
+    animation-iteration-count: infinite;
+
+    /* Direccion de la animación */
+    animation-direction: reverse;
+
+    /* Pausar animacion */
+    animation-play-state: paused;
+
+    /* Que hacer despues que finaliza la animación (con forwards se quedaria en el estado final) */
+    animation-fill-mode: forwards;
+
+    /* TODO EN UNO !IMPORTANTE => nombre, duracion, ease, delay, iteration, direction*/
+    animation: nombre 2s ease-in-out 300ms infinite reverse;
+}
+
+
+@keyframes nombreAnimacion {
+
+    /* El from y to puede ser remplazado por duracion en segundos o por % */
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(100px);
+    }
+}
