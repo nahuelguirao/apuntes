@@ -1,0 +1,5 @@
+#Creo venv
+py -m venv nombreEntorno
+
+#Instalo DRF (Ya instala tambien Django ya que lo necesita)
+pip install djangorestframework

@@ -1,0 +1,15 @@
+#Corroborar versión TS
+
+tsc -v 
+
+#Installar TS
+npm install -g typescript
+
+#Convertir archivo TS => JS
+tsc 'nombreArchivo.ts'
+
+#MODO OBSERVADOR
+tsc 'nombreArchivo.ts' -w 
+
+#Inicializar proyecto en typescript (para observar varios archivos .ts)
+tsc -init => luego => tsc -w
