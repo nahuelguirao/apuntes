@@ -1,0 +1,10 @@
+/* JUSTIFY ALINEA EL EJE PRINCIPAL */
+/* si es column verticalmente y si es row horizontalmente */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Aling alinea el eje secundario */

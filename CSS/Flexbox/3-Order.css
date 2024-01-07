@@ -1,0 +1,13 @@
+.item1 {
+    order: 3;
+}
+
+.item2 {
+    order: 1;
+}
+
+.item3 {
+    order: 2;
+}
+
+/* Se pueden ordenar los items agregandole el order: posición */

@@ -1,0 +1,21 @@
+.item {
+    /* Si se pone + de 0 autoriza a los items a ocupar todo el contenido */
+    flex-grow: 1;
+    /*si es 0 no pueden crecer*/
+
+    flex-shrink: 1;
+    /*Los elementos pueden achicarse (si es cero, no pueden achicarse*/
+
+    flex-basis: 100px;
+    /*  define el tamaño inicial de un elemento flexible antes de que se apliquen las proporciones de flexión (shrink, grow) */
+
+    flex: 1;
+    /* Si se pone flex: 1 quiere decir que se puede achicar como agrandar */
+
+}
+
+
+.itemEspecifico {
+    flex: 2;
+    /* Se puede dar un flex mayor a algún item en particular para que tenga una mayor proporción */
+}

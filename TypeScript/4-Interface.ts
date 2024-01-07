@@ -17,7 +17,6 @@ let programador2: Programador = {
   junior: false,
 };
 
-//Como no es de tipo 'Programador' no nos va a dejar
 let programador3 = {
   nombre: "Carlos",
 };
@@ -26,4 +25,5 @@ function enviarCv(programador: Programador) {
   console.log(`CV de ${programador.nombre}`);
 }
 
+//Como no es de tipo 'Programador' no nos va a dejar
 enviarCv(programador3);

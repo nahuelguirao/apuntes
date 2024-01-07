@@ -1,0 +1,5 @@
+.container {
+    display: flex;
+    /* DIRECCIÓN Y LUEGO SI WRAP O NO */
+    flex-flow: column wrap;
+}
