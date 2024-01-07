@@ -1,8 +1,8 @@
 class Pelicula {
-  //Hay que inicializarlo (igualarlo a alguna variable o ponerle ? ya que sino tira error)
-  nombre: string = "Nombre default";
-  protagonistas?: string[];
-  actores?: string[];
+  //Determinar si las props son public/private y definir su tipado
+  public nombre: string;
+  public protagonistas?: string[];
+  public actores?: string[];
 
   proyectarEnCine() {
     console.log(`La pelicula ${this.nombre} esta siendo proyectada`);

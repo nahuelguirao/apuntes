@@ -26,4 +26,4 @@ function enviarCv(programador: Programador) {
 }
 
 //Como no es de tipo 'Programador' no nos va a dejar
-enviarCv(programador3);
+// enviarCv(programador3);
