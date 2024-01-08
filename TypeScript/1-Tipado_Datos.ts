@@ -15,7 +15,7 @@ function presentacion(nombre: string, edad?: number) {
 
 presentacion(nombre, numero);
 
-//Any (hay que tratar de evitarlo) quiere decir que puede ser cualquier dato
+//Any (hay que tratar de evitarlo) quiere decir que puede ser cualquier dato (Le dice a typescript que IGNORE todo el tipado que este ofrece)
 let disney: any;
 
 disney = "Micky mouse";
