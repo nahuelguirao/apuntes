@@ -1,0 +1,41 @@
+/* Con grid tepmlate areas podemos determinar un layout mas legible */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    /* AQUÍ */
+    grid-template-areas:
+        "header header header"
+        "aside main main"
+        "footer footer footer"
+    ;
+}
+
+/* Luego en los childrens se le determina el grid area que ocupará */
+header {
+    background-color: lightblue;
+    grid-area: header;
+}
+
+aside {
+    background-color: lightcoral;
+    grid-area: aside;
+}
+
+main {
+    background-color: lightgreen;
+    grid-area: main;
+}
+
+footer {
+    background-color: lightsteelblue;
+    grid-area: footer;
+}

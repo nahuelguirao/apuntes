@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+
+    /* Alinea en bloque de manera horizontal dentro de cada child */
+    justify-items: center;
+    /* Si quiero puedo justificar un child en especifico con justify-self */
+
+    /* Alinea en bloque de manera vertical dentro de cada child */
+    align-items: start;
+    /* Tambien puedo utilizar align-self de manera individual */
+
+    /* Alinea todo el contenido de manera horizontal */
+    justify-content: center;
+
+    /* Alinea todo el contenido de manera vertical */
+    align-content: center;
+}

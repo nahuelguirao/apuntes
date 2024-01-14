@@ -1,0 +1,29 @@
+.container {
+    background-color: bisque;
+    border: solid 3px black;
+    border-radius: 10px;
+    display: grid;
+
+    /* Lo mismo se utiliza con ROWS */
+    grid-template-columns: 100px auto;
+    /* Grid template columns recibe la cantidad de columnas y que tamaño tendran (en el tamaño tambien podemos utilizar fr) */
+    /* Se puede utilizar repeat(cantidad col, tamaño) y si se pone auto ocupara el espacio restante */
+
+
+    /* Indica el tamaño predeterminado que tendran en este caso las filas que se autogeneren (lo mismo con las columns) */
+    grid-auto-rows: 50px;
+    grid-auto-columns: 100px;
+
+    /* Genera automaticamente la cantidad de columnas con auto-fill */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    /* Auto-fit ocupa todo el espacio, auto-fill mantiene las proporciones y si sobra espacio la cuadricula se llena igual (por ejemplo para resultados de busqueda) */
+}
+
+
+.childrenTwo {
+    /* Para aplicar las columnas/filas que ocupara un child en especifico: */
+    grid-column: 2/5;
+    grid-row: 1/8;
+    /* Tambien directamente se puede poner que ocupe 'un numero' columnas */
+    grid-column: span 2;
+}
