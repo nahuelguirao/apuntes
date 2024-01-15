@@ -1,3 +1,5 @@
+#RECORDAR AGREGAR UN MODULO __INIT__.py en la carpeta
+
 from . import Response #from rest_framework.response
 from . import api_view #Para generar una vista de una API como una función en lugar de una clase (from rest_framework.decorators)
 from . import UserSerializer #El serializador creado

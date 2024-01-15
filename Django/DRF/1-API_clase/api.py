@@ -1,3 +1,5 @@
+#RECORDAR AGREGAR UN MODULO __INIT__.py en la carpeta
+
 from . import Response #Para retornar un serializador con su respectiva data (from rest_framework.response)
 from . import APIView #Para que nuestra vista funcione (from rest_framework.views)
 from . import UserSerializer #Serializer creado

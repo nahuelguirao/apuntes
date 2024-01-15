@@ -11,6 +11,9 @@ let random: (string | number)[] = ["Nahuel", 1, "Hola", 422];
 
 let random2: Array<string | number> = ["carlos", 23, "chau"];
 
+//Lista de listas
+let board: string[][] = [["Hola", "Como"], ["Estas"]];
+
 // ------------------------------
 
 //Ejemplo de tipado de un tablero de TA-TE-TI
@@ -31,6 +34,6 @@ let tableroTateti: tableroCompleto = [
 // -----------------------
 //Ejemplo tupla
 
-type RGB = [number, number, number];
+type RGB = readonly [number, number, number];
 
 let rojo: RGB = [255, 0, 0];
