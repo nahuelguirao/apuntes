@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
             'password': instance['password']
         }
 
-#IMPORTANTE! (le envio los valores desde la vista)
+#IMPORTANTE! (le envio los valores desde la vista) de la siguiente manera:
 
 # if request.method == 'GET':
     users = User.objects.all().values('id','username','email','password')  #<= AQUÍ !!!!!!

@@ -7,18 +7,17 @@ from . import User #Modelo
 from . import status # Para especificar el estado de una response (from rest_framework import ...)
 
 #El api_view recibe en una lista los metodos HTTP aceptados por la vista
-@api_view(['GET'])
 @api_view(['GET', 'POST'])
 def user_api_view(request):
         
         if request.method == 'GET':
             users = User.objects.all()
-            users_serializers = UserSerializer(users, many = True)
+            users_serializers = UserSerializer(users, many = True) #Aqui el serializado cumple la función de 'serializar'
             
             return Response(users_serializers.data, status = status.HTTP_200_OK)
         
         elif request.method == 'POST':
-            new_user = UserSerializer(data=request.data) #el .data contiene toda la información enviada 
+            new_user = UserSerializer(data=request.data) #Aqui el serializador cumple una función de 'deserializar' el contenido que trae el request
             if new_user.is_valid():
                 new_user.save() #Si es valido guarda el usuario
                 return Response('Usuario creado corrrectamente')
@@ -26,29 +25,25 @@ def user_api_view(request):
             return Response(new_user.errors) #La instanciación del serializer contiene los errores (si es que los hay con .errors)
         
 
-@api_view(['GET','PUT','DELETE'])
-def specific_user_view(request, id):
+@api_view(['GET', 'PUT', 'DELETE'])
+def user_detail_api_view(request, pk):
+    user = User.objects.filter(id=pk).first()
     
-    user = User.objects.filter(id=id).first() #Filtra el usuario por el id ingresado en la url
-    
-    #Si existe
     if user:
-        #Muestra el usuario
         if request.method == 'GET':
-            user = UserSerializer(user) 
-            return Response(user.data)
-        #Actualiza el usuario
-        elif request.method == 'PUT':
-            updated_user = UserSerializer(user, data = request.data)
-            if updated_user.is_valid():
-                updated_user.save()
-                return Response({'message':'Información actualizada correctamente'})
-            return Response(updated_user.errors)
-        #Elimina el usuario
-        elif request.method == 'DELETE':
-            user.delete()
-            return Response({'message':'Usuario eliminado correctamente'})
+            user_info = UserSerializer(user)
+            return Response(user_info.data)
+
+        if request.method == 'PUT':
+            edited_user = UserSerializer(user, data=request.data)
+            if edited_user.is_valid():
+                edited_user.save()
+                return Response(edited_user.data)
+        
+            return Response(edited_user.errors)
     
-    #Si no existe el user
-    else: 
-        return Response({'message':'Usuario no encontrado'})
+        if request.method == 'DELETE':
+            user.delete()
+            return Response({'message':'Usuario eliminado.'})
+    
+    return Response({'message':'Usuario no encontrado.'})

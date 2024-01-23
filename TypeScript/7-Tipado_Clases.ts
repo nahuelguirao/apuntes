@@ -1,7 +1,7 @@
 class Pelicula {
   //Determinar si las props son public/private y definir su tipado
   public nombre: string;
-  public protagonistas?: string[];
+  public protagonistas?: string[]; //Para determinar que una prop sea privada es private o UN '#' de manera nativa en JS
   public actores?: string[];
 
   proyectarEnCine() {
@@ -22,3 +22,26 @@ const pelicula = new Pelicula(
 );
 
 console.log(pelicula);
+
+//Se pueden implementar interfaces a clases
+
+interface AvengerInterface {
+  name: string;
+  powerScore: number;
+  wonBattles: number;
+  age: number;
+}
+
+class Avenger implements AvengerInterface {
+  name: string;
+  powerScore: number;
+  wonBattles: number;
+  age: number;
+
+  constructor(name: string, powerScore: number) {
+    this.name = name;
+    this.powerScore = powerScore;
+    this.wonBattles = 0;
+    this.age = 0;
+  }
+}

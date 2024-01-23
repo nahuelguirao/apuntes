@@ -7,6 +7,8 @@ from . import ProductSerializer
 class ProductRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = ProductSerializer
     
+    #Si quiero puedo modificar el método GET 
+    
     def get_queryset(self):
         return self.get_serializer().Meta.model.objects.filter(state=True)
 

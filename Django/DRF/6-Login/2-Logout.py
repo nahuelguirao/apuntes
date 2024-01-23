@@ -6,29 +6,23 @@ from . import Response
 from . import status
 
 class Logout(APIView):
-    def get(self, request):
-        try:
-            #Se ve si existe un token 
-            token = Token.objects.filter(key = request.GET.get('token')).first()
+    def post(self, request):
+        token = request.data['token'] #Obtengo el token enviado 
+        token = Token.objects.filter(key = token).first() #Filtro para ver si el token realmente existe
+        
+        if token:
+            user = token.user #Si existe el token vinculo el usuario que esta asociado y lo declaro
             
-            if token: 
-                #Si existe se busca el usuario y se cierran todas las sesiones
-                user = token.user
-                all_sesions = Session.objects.filter(expire_date__gte = datetime.now()) 
-                        
-                if all_sesions.exists():
-                    for session in all_sesions:
-                        session_data = session.get_decoded()
-                        if user.id == int(session_data.get('_auth_user_id')):
-                            session.delete()
-                
-                token.delete() #Borra el token
-                session_message = 'Sesiones eliminadas.' 
-                token_message = 'Token eliminado.'
-                return Response({'token_message': token_message, 'session_message': session_message}, status.HTTP_200_OK)
+            all_sessions = Session.objects.filter(expire_date__gte = datetime.now()) #Busca todas las sesiones que ya estan abiertas
+            
+            if all_sessions.exists(): #Si existe alguna sesión o sesiones las cierra
+                for session in all_sessions:
+                    session_data = session.get_decoded()
+                    if user.id == session_data.get('auth_user_id'):
+                        session.delete() #Borra la sesión
+            token.delete() #Borra el token
+            
+            return Response({'message':'Sesión cerrada.'}, status.HTTP_200_OK)
 
-            #Si no se encuentra un token 
-            return Response({'error':'No se encontró un usuario con estas credenciales.'}, status.HTTP_404_NOT_FOUND)
-
-        except:
-            return Response({'error':'No se encontro "token" en la petición.'}, status.HTTP_404_NOT_FOUND)
+        else:
+            return Response({'error':'Token no válido.'}, status.HTTP_400_BAD_REQUEST)

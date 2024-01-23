@@ -13,35 +13,31 @@ from . import UserTokenSerializer
 # 2° => Creo una clase para realizar un login con Token que hereda de ObtainAuthToken
 class Login(ObtainAuthToken):
     
-    def post(self, request, *args, **kwargs):
-        #Ya viene definido el serializer por ello hacemos referencia con self (tiene dos parametros el username y el password, es decir que los valida)
-        login_serializer = self.serializer_class(data = request.data, context = {'request':request})
+    #Redefino el método POST
+    def post(self, request):
         
-        if login_serializer.is_valid(): #Verifica que el usuario exista
-            user = login_serializer.validated_data['user'] #Contiene la info del usario que encontró
+        login_serializer = self.serializer_class(data = request.data, context = {'request' : request}) #ObtainAuthToken tiene su propio serializer definido
+        
+        if login_serializer.is_valid(): #ObtainAuthToken solo verifica el nombre de usuario y la contraseña
+            user = login_serializer.validated_data['user'] #Si es valido quiere decir que el usuario existe y lo almaceno en una variable
             
-            if user.is_active: 
-                #Token contiene el token y created devuelve true / false
-                token, created = Token.objects.get_or_create(user = user) #Necesita que le pasemos el usuario, si no existe el token lo crea, sino lo obtiene
-                user_serializer = UserTokenSerializer(user) #Necesito serializar la información por ello utilizo un serializer propio
-                if created:
+            if user.is_active: #(is_active) Es un campo del modelo user IGNORAR
+                token, created = Token.objects.get_or_create(user = user) #Verifica si el usuario ya tiene un token o no (si no tiene lo crea)
+                user_serializer = UserTokenSerializer(user)
+                
+                if created: #Si se crea el token 
                     return Response({
+                        'usuario': user_serializer.data, #Necesito serializar el user
                         'token': token.key,
-                        'user' : user_serializer.data,
-                        'message': 'EXITO'
+                        'message':'EXITO'
                         }, status.HTTP_201_CREATED)
-                else:
-                    token.delete() #Si ya existe el token lo elimino y creo uno nuevo
-                    token = Token.objects.create(user = user)
-                    return Response({
-                        'token': token.key,
-                        'user' : user_serializer.data,
-                        'message': 'EXITO'
-                        }, status.HTTP_201_CREATED)
+                
+                else: #Si ya estaba creado el token
+                    return Response({'error':'El usuario ya ha inciado sesión'}, status.HTTP_409_CONFLICT)
+            
             else: 
-                return Response({'error':'Usuario no esta activo.'}, status.HTTP_401_UNAUTHORIZED)
-        
+                return Response({'message':'Usuario no activo.'}, status.HTTP_401_UNAUTHORIZED)
         else:
-            return Response({'erorr':'Credenciales erroneas.'}, status.HTTP_400_BAD_REQUEST)
+            return Response({'message':'Credenciales erroneas.'}, status.HTTP_400_BAD_REQUEST)
 
 # 3° => Agrego la ruta a las url del proyecto  => path('', Login.as_view(), name='login'),

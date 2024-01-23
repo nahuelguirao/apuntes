@@ -21,11 +21,11 @@ let programador3 = {
   nombre: "Carlos",
 };
 
-function enviarCv(programador: Programador) {
+function enviarCv(programador: Programador2) {
   console.log(`CV de ${programador.nombre}`);
 }
 
-//Como no es de tipo 'Programador' no nos va a dejar
+//Como no es de tipo 'Programador2' no nos va a dejar
 // enviarCv(programador3);
 
 //-------------------
