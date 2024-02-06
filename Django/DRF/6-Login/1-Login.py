@@ -23,7 +23,7 @@ class Login(ObtainAuthToken):
             
             if user.is_active: #(is_active) Es un campo del modelo user IGNORAR
                 token, created = Token.objects.get_or_create(user = user) #Verifica si el usuario ya tiene un token o no (si no tiene lo crea)
-                user_serializer = UserTokenSerializer(user)
+                user_serializer = UserTokenSerializer(user) #Creo un serializer especifico para que me retorne los campos que quiera que me devuelva
                 
                 if created: #Si se crea el token 
                     return Response({
