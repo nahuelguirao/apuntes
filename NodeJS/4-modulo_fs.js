@@ -14,3 +14,25 @@ fs.writeFileSync('./data/third.txt', 'Este es un tercer archivo')
 fs.readFile('./data/first.txt', 'utf-8', (error, data) => {
     data ? console.log(data) : console.log(error)
 })
+
+// -----------------------------
+
+//PROMESAS 
+
+//Ya esta convertido a promesa
+const { readFile } = require('fs/promises')
+
+async function allFiles() {
+    try {
+        const data = await readFile('./data/first.txt', 'utf-8')
+
+        const data2 = await readFile('./data/second.txt', 'utf-8')
+
+        console.log(data)
+        console.log(data2)
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+allFiles()
