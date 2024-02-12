@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Notebook",
+      "description": "Notebook gaming",
+      "price": 1000,
+      "stock": false
+    },
+    {
+      "id": "3",
+      "name": "Gaming Keyboard",
+      "description": "Mechanical gaming keyboard with RGB lighting",
+      "price": 120,
+      "stock": false
+    },
+    {
+      "id": "5",
+      "name": "Gaming Chair",
+      "description": "Ergonomic gaming chair with adjustable armrests",
+      "price": 200,
+      "stock": true
+    }
+  ]
+}
