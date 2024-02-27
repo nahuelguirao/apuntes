@@ -3,7 +3,7 @@ import { getProducts } from "../api/productsAPI"
 
 export function ProductsList() {
     const { isLoading, data: products, isError, error } = useQuery({
-        queryKey: ['products'], //Nombre del query
+        queryKey: ['products', 'parametroPara la función'], //Nombre del query, tambien podemospasar en orden los parametros para la función (luego los uso en la función asi => ###)
         queryFn: getProducts, //Función que utiliza 
         select: products => products.sort((a, b) => b.id + a.id) //Permite ordenarlos / filtrarlos datos traidos
     })
@@ -26,4 +26,11 @@ export function ProductsList() {
             </div>
         ))
     )
+}
+
+
+//Ejemplo de como utilizar los parametros
+function funcionPrueba(ctx) {
+    const [_, parmetroNecesario] = ctx.queryKey //con ctx (si quiero TIPARLO es con QueryFunctionContext)
+    //Resto función...
 }
