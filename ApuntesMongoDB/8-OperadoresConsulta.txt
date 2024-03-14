@@ -1,0 +1,27 @@
+Operadores relacion
+
+= $eq
+!= $ne
+> $gt
+=> $gte
+< $lt
+<= $lte
+
+
+Operadores pertenencia
+$in (Pertenece)
+$nin (No pertenece)
+
+
+Ejemplo  relacion
+
+db.movies.find(
+    {title: {$eq: "The Martian"}}
+)
+
+
+Ejemplo pertenencia (recibe un array de valores)
+
+db.movies.find(
+    {rating: {$in: ['G', 'PG']}}
+)

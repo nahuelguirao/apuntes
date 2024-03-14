@@ -20,3 +20,10 @@ db.nombre_coleccion.insertMany(
 db.nombre_coleccion .find() //Para mostrar todos los documentos (se le puede agregar un parametro de busqueda)
                     .count()  //Numero de docs
                     .load("Nombre archivo") //Insertar un archivo formato JS 
+
+
+mongod => Inicia servidor
+
+mongosh => Mongo shell
+
+show dbs => muestra Bases de datos

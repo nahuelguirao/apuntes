@@ -1,0 +1,17 @@
+$and (Ambos)
+
+$not (Invierte el efecto)
+
+$nor (Ninguna de las clausulas)
+
+$or  (Uno u otro)
+
+
+Ejemplo or
+
+db.movies.find(
+    {$or : [
+        {'director' : 'Steven Spielberg'},
+        {'director' : 'Zack Snyder'}
+        ]}
+)

@@ -1,0 +1,17 @@
+
+$exists => Trae los documentos que contengan el campo que le decimos
+$type => Trae los documentos del tipo especificado
+
+db.movies.find(
+    //Si ponemos true => trae los docs que contienen el campo (incluyendo null), si ponemos false docs que no contienen el campo 
+    {poster: {$exists : true}}  
+)
+
+
+////
+
+
+db.movies.find(
+    //Traeria todos los docs que en el field rating tengan un tipo INT
+    {rating: {$type: 'int'}}
+)

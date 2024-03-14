@@ -1,5 +1,0 @@
-mongod => Inicia servidor
-
-mongosh => Mongo shell
-
-show dbs => muestra Bases de datos
