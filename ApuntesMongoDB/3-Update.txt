@@ -1,0 +1,45 @@
+!! Todo se puede emplear con updateOne y/o updateMany
+
+Estructura:
+db.nombreColección.updateOne(filter, update, options (opcional))
+
+Ejemplo: 
+db.movies.updateOne(
+    {title: "Carmencita"},
+    {$set :
+        {contador: [0,1,2,3,4,5,6,7]}
+    }
+)
+
+ademas de $set existen:
+https://www.mongodb.com/docs/manual/reference/operator/update/
+
+    $unset : Borra los campos especificados de un documento
+    $rename : Renombra un campo
+    $min / max : Actualiza el campo solo si cumple con la condición
+    $currentDate : Setea la fecha actual como Date o TimeStamp
+    $mul : Multiplica el valor de un campo por el valor especificado
+    $inc : Incrementa el valor del field con el valor especificado
+
+Ejemplo $unset
+
+updateOne(
+    {_id : "id"}, 
+    {$unset : {nombreCampo : ""}}
+) //Se puede poner cualquier valor del nombre de campo ya que borrara este.
+
+
+Ejemplo $rename 
+
+updateOne(
+    {_id : "id"}, 
+    {$rename : {nombreCampo : "nuevoNombre"}}
+)
+
+
+Ejemplo $min (es lo mismo con $max)
+
+updateOne(
+    {_id : "id"}, 
+    {$min : {year : 2010}}
+) //Si el year del documento es mayor 2010 lo modificara

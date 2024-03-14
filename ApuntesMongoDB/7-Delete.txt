@@ -1,0 +1,5 @@
+//Ambos deleteOne y deleteMany: 
+
+db.movies.deleteOne(
+    {title: "Titulo"}
+)

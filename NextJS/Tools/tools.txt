@@ -1,0 +1,6 @@
+import { revalidatePath } from 'next/cache'
+
+revalidatePath('url') => Recarga la ruta para resetear el cache
+
+//////////////////
+

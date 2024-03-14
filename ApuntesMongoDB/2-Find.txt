@@ -1,0 +1,16 @@
+Para acceder a documentos dentro de documentos se utiliza la notación de . como un objeto js
+    {'stats.speed' : 250} //Documentos que tengan un doc stats y accedemos a la prop speed
+
+Para acceder a tipos de array:
+
+    {'cast' : 'John Ryan'} //Simplemente q lo contenga
+    {'cast' : ['Uma', 'Jhon Ryan']} //Para que respete el orden literal con [] como si fuera una tupla
+    {'cast.0' : 'John Ryan'} //En una posición en especifico
+
+
+Para agregar una proyección (que tipo de columnas/datos quiero ver y limit)
+
+db.usuarios.find(
+    {edad : {$gt: 18}}, //Usuarios + 18
+    {nombre: 1 , edad: 1} // Si se pone un 1 quiere decir que ese campo debe incluirse, sino un 0
+    ).limit(5) // Limita los resultados  5

@@ -1,0 +1,11 @@
+Permite en caso de no encontrar un documento de acuerdo a un 
+filtro crear uno que le pasemos
+
+db.movies.updateOne(
+    {_id: "123456789"},
+    {$set: {
+        "title": "Hola mundo movie",
+        "year": 2020
+    }},
+    {upsert: true}
+)

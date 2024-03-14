@@ -1,0 +1,22 @@
+use nombre_DB  //IMPORTANTE! Aclarar
+
+db.nombre_coleccion.insertOne(
+    {
+        json
+    }
+)
+
+db.nombre_coleccion.insertMany(
+    [
+        { documento 1},
+        { documento 2}
+    ], 
+    {
+        "ordered" : false  //Si agrego este parametro opcional si encuentra duplicados no parara con la creación (creando hasta el final todos los que sean validos)
+    }
+)
+
+
+db.nombre_coleccion .find() //Para mostrar todos los documentos (se le puede agregar un parametro de busqueda)
+                    .count()  //Numero de docs
+                    .load("Nombre archivo") //Insertar un archivo formato JS 

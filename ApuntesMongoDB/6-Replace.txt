@@ -1,0 +1,11 @@
+replaceOne(filter, replacement, options)
+
+//Simplemente reemplaza un documento por otro
+
+db.movies.replaceOne(
+    {title : "titulo filtrado"},
+    {
+        "title" : "Cars nuevo",
+        "year": 2020
+    }
+)
