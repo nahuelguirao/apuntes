@@ -1,0 +1,37 @@
+$all => trae los documentos que tienen el campo de [] con los valores que le pasamos
+
+db.movies.find(
+    {contador : {$all: [1,5,7]}} //IMPORTANTE CONTADOR TIENE QUE UN ARRAY
+) *Los valores q le pasamos al all quiere decir todos los que tiene que tener un documento para que nos lo traiga
+
+
+////////////////////////////////
+
+$size => trae todos los documentos que tienen el campo con el size que le pasamos 
+
+db.movies.find(
+    {contador: {$size : 2}}
+)
+
+
+////////////////////////////////
+
+$elemMatch => sirve para encontrar docs que contengan dentro un campo de array de objetos y pasarle distintas condiciones
+
+Ejemplo: 
+{
+  "_id": 1,
+  "name": "John",
+  "grades": [
+    {"subject": "Math", "score": 90},
+    {"subject": "Science", "score": 85},
+    {"subject": "History", "score": 95}
+  ]
+}
+
+Si quiero obtener los estudiantes que esten en 'Math' y tengan mayor nota que 85
+db.students.find(
+    { grades: 
+        { $elemMatch: { subject: "Math", score: { $gt: 85 } } } 
+    }
+)

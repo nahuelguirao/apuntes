@@ -1,0 +1,5 @@
+Simplemete para pasar expresiones regulares
+
+db.movies.find(
+    {"title" : {$regex : 'expresion regular'}}
+)
