@@ -1,0 +1,7 @@
+const logoImg = require('./assets/adaptive-icon.png')
+
+Image (local) => <Image source={logoImg} />
+
+Image (remoto) => <Image source={{uri: 'LINK IMAGEN'}}/> (IMPORTANTE el uri!)
+
+Image Background => <ImageBackground source={logoImg} />

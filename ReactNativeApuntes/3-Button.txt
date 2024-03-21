@@ -1,0 +1,7 @@
+Los botones son componentes self-close
+
+<Button title="Titulo del boton" onPress={funcionOnPress} color={'red'}/>
+
+//Si bien los botones predeterminados no se pueden estilizar se puede agregar el atributo 'color'
+
+//Tambien podemos agregarle la prop 'disabled' para que este desactivado

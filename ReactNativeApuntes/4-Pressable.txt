@@ -1,0 +1,21 @@
+//Presable permite hacer tapeable un componente gestionando el evento 'onPress'
+
+<Pressable onPress={() => Alert.alert("Hi!")}>
+    <Image source={logoImg} style={{ width: 300, height: 300 }} />
+</Pressable>
+
+
+!IMPORTANTE
+
+podemos usar Pressable para hacer un custom button (para poder darle estilos)
+ya que el button default no acepta styles
+
+
+
+Eventos press
+
+onPressIn (Primer toque)
+
+onLongPress (Manteniendo el tap +500 ms)
+
+onPressOut (Cuando se saca el toque)

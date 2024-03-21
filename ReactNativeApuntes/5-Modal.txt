@@ -1,0 +1,11 @@
+Los modal son utilizados para mostrar algo encima del layout actual de nuestra app
+(Puede servir como algun aviso importante o demas)
+
+      <Button title="Show alert" onPress={() => setIsVisible(true)} />
+      <Modal visible={isVisible} animationType="slide" presentationStyle="formSheet">
+        <Button title="Close" onPress={() => setIsVisible(false)} />
+      </Modal>
+
+//El presentationStyle SOLO afecta en IOS
+//Animation type puede ser slide, fade o none (que es el default)
+//Tambien existe el evento onRequestClose que ejecuta una función cuando el usuario quiere ir para atras 

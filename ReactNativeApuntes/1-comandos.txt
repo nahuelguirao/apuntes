@@ -1,0 +1,8 @@
+//Crear aplicación plana react native
+
+npx react-native@latest init nombreApp
+
+
+//Crear expo app
+
+npx create-expo-app@latest nombreApp

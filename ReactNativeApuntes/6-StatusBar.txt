@@ -1,0 +1,8 @@
+Gestiona la barra de estado del celular
+<StatusBar backgroundColor='red' barStyle='light-content' hidden />
+
+//Props
+
+// backgroundColor => Color de fondo 
+// barStyle => Permite cambiar entre theme oscuro/claro
+// hidden => La oculta
