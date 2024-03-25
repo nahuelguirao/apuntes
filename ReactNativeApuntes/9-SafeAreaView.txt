@@ -1,0 +1,3 @@
+Para dispositivos que tienen notches o elementos que pueden afectar la vista de nuestra APP podemos utilizar
+
+<SafeAreaView> Para poder asegurarnos que no afectara a nuestra UI

@@ -1,0 +1,18 @@
+IMPORTANTE! SI QUEREMOS Permitir que la UI se adapte al giro del dispositivo, tenemos que en el app.json poner orientation : 'default'
+
+
+Dimesions => sirve para obtener dinamicamente el width y height del dispositivo
+
+
+Dimensions.get("screen or window").valor
+
+// Screen => incluye no solo el contenido visible de la UI de nuestra app sino tambien, barra de notifiaciones, camaras y demas de cada dispositivo
+// Window => solo la parte de la UI de nuestra app
+
+Valor puede ser height, width, etc.
+
+
+//Para mantener updateado cada vez que cambia el ancho/alto del dispositivo podemos usar useWindowDimensions():
+
+const windowWidth = useWindowDimensions().width
+const windowHeight = useWindowDimensions().height

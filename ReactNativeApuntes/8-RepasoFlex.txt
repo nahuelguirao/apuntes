@@ -1,0 +1,22 @@
+//El eje principal en React Native es Column
+
+
+Flex => Cuanto espacio puede ocupar un flex-item (dentro del container)
+
+FlexDirection => Row / Column (+ reverse)
+
+JustifyContent => Mueve el contenido completo en el axi principal
+
+AlingItems => Mueve el contenido completo en el axi contrario al prinicpal
+
+AlignSelf => Permite alinear un flex-item en particula dentro del axi contrario al principal
+
+FlexWrap => Permite que si los flex-items no caben pasen a la siguiente fila/columna
+
+AlignContent => Alinea las filas de contenido en el axi contrario al principal
+
+FlexBasis => Determina el tamaño inicial de un flex-item
+
+FlexShrink => Determina que flex-item se achicara prioritariamente cuando no haya espacio suficiente
+
+FlexGrow => Determina que flex-item se agrandara o tendra 'derecho' a agrandarse prioritariamente

@@ -1,0 +1,15 @@
+Para obtener que sistema operativo es el dispositivo usamos Platform.os ("android" o "ios")
+
+Tambien se puede hacer un styling de esta forma 
+
+
+text : {
+    ...Platform.select({
+        ios: {
+            color: "red"
+        },
+        android: {
+            color: 'blue'
+        }
+    })
+}

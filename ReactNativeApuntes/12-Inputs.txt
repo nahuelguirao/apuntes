@@ -1,0 +1,23 @@
+
+secureTextEntry //Le da tipo password
+
+keyboardType //Tipo de teclado que se desplegará
+
+
+Para un switch inpunt simplemente se usa <Switch />
+
+Switch props 
+
+onValueChange (recibe una función)
+
+trackColor = {{false: 'color', true: 'color}} //Para establecer un color si esta activo o no
+
+thumbColor = "color" //Color del botoncito redondo (NO del fondo)
+
+
+
+!IMPORTANTE si nuestros inputs se tapan con el teclado hay que itilizar:
+
+<KeyboardAvoidingView> Como contenedor con la prop behavior="padding"
+
+Sino funciona se peude agregar la prop de keyboardVerticalOffSet={número}

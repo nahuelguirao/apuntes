@@ -1,0 +1,22 @@
+EN IOS se usa un style prop
+
+  shadow: {
+    shadowColor: 'red',
+    shadowOffset: {
+      width: 10,
+      height: 10
+    },
+    shadowOpacity: 0.6,
+    shadowRadius: 4
+  },
+
+
+EN ANDROID se utiliza ELEVATION
+
+  shadow: {
+    shadowColor: 'red',
+    elevation: 5,
+  },
+
+
+//El único valor que comparten es el shadowColor

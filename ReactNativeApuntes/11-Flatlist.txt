@@ -1,0 +1,42 @@
+Es recomendable usar flatlist en lugar de .map ya que renderiza solo los items visibles
+
+
+recibe data y una función que renderiza cada item
+
+      <FlatList data={data} renderItem={({ item }) => {
+        return (
+          <View key={item.id}>
+            <Text>{item.name}</Text>
+          </View>)
+      }} />
+
+
+!Tambien se le puede agregar un param 'horizontal' para desplegar los items horizontalmente
+
+
+
+Otras props:
+
+KeyExtractor = {(item, index) => item.id.toString()} //Sirve para establecer el ID unico de cada item DEBE RETORNAR UN STRING
+
+ItemSeparatorComponent = {<Componente style={{height: 16}} />} //Solo se agregaria el espacio entre los items y no  al final ni al principio
+
+ListEmpty = {Componente} //Recibe un componente para mostrar cuando esta el array vacío
+
+ListHeaderComponent = {Componente} //Para establecer como header del flatlist 
+
+ListFooterComponent = {Componente} // ""  "" como footer del "" "" 
+
+
+
+!PARA tener varias secciones dentro podemos usar en lugar de flatlist sectionList
+
+https://www.youtube.com/watch?v=MznCJYsuNRs&list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1&index=56 
+
+Props:
+
+renderSectionHeader // Renderiza un componente como header de cada seccion 
+
+ItemSeparatorComponent // Lo mismo que flatlist 
+
+
