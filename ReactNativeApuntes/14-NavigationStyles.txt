@@ -1,0 +1,25 @@
+Para aplicar estilos dentro de todo un stack navigator  se usa la prop screenOptions 
+
+<NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: "red",
+        },
+        headerTintColor: "#Fff",
+        headerTitleStyle: { fontWeight: 'bold' },
+        headerRight: () => (
+          <Pressable>
+            <Text>Menu</Text>
+          </Pressable>
+        ) //Tambien existe header left
+      }}>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            title: "Home name",
+          }}
+        />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>

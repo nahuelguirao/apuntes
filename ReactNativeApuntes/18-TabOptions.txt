@@ -1,0 +1,29 @@
+export default function App() {
+  return (
+    <NavigationContainer>
+      <TabNavigator.Navigator
+        screenOptions={{
+          tabBarLabelPosition: "beside-icon", //Como se posiciona cada label en comparación al icono
+          tabBarShowLabel: false, //Para mostrar o no el label
+          tabBarActiveTintColor: "red", //Color del screen activo
+          tabBarInactiveTintColor: "blue", //Color del screen inactivo
+        }}
+      >
+        <TabNavigator.Screen
+          name="Dashboard"
+          component={DashboardScreen}
+          options={{
+            tabBarLabel: 'Label personalizada', //Label personalizada
+            tabBarIcon: () => <Ionicons name="person" size={24} />, //Icon
+            tabBarBadge: 44//Util si necesitas una alerta de notificación
+          }}
+        />
+        <TabNavigator.Screen name="About" component={AboutScreen} />
+      </TabNavigator.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+PARA NESTING DE NAVEGACIONES 
+https://www.youtube.com/watch?v=aDqSrYXbC0o&list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1&index=82

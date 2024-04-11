@@ -1,0 +1,45 @@
+npm install @react-navigation/drawer
+
+(si es project expo) npx expo install react-native-gesture-handler react-native-reanimated
+
+npx expo install react-native-reanimated
+
+Agregar a los plugins:
+plugins: [
+      'react-native-reanimated/plugin',
+    ],
+
+(recomendado borrar el cache) npx expo start -c
+
+
+import 'react-native-gesture-handler'  // !IMPORTANTEEEE
+import { NavigationContainer } from '@react-navigation/native'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import DashboardScreen from './screens/Dashboard'
+import AboutScreen from './screens/About'
+
+const Drawer = createDrawerNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name='Dashboard' component={DashboardScreen} />
+        <Drawer.Screen name="About" component={AboutScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
+}
+
+
+Luego dentro de un screen podemos usar navigation para toggleDelMenu o Navegar automaticamente a otra screen 
+
+export default function DashboardScreen({ navigation }) {
+    return (
+        <View>
+            <Text>Dashboard </Text>
+            <Button title="Toggle menu" onPress={() => navigation.toggleDrawer()} />
+            <Button title="Go about" onPress={() => navigation.jumpTo("About")} />
+        </View>
+    )
+}

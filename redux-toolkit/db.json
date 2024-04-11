@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Producto A",
+      "done": false
+    },
+    {
+      "id": 2,
+      "name": "Producto B",
+      "done": true
+    },
+    {
+      "id": 3,
+      "name": "Producto C",
+      "done": false
+    },
+    {
+      "id": "cdcc8d6e-45f0-433c-b43a-39c4a5840f56",
+      "name": "Iphone 19",
+      "done": false
+    }
+  ]
+}

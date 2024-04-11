@@ -1,0 +1,21 @@
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen
+          name="Dashboard"
+          component={DashboardScreen}
+          options={{
+            title: "Titulo forzado", //Label 
+            drawerLabel: "Titulo dentro del drawer", //Label dentro del drawer
+            drawerActiveBackgroundColor: 'red', //Color del screen activo 
+            drawerActiveTintColor: 'blue', //Color de la letra del screen activo
+            drawerContentStyle: {
+              backgroundColor: "#202020" //Colores generales del drawer
+            }
+          }}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}

@@ -1,0 +1,17 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import DashboardScreen from "./screens/Dashboard";
+import AboutScreen from "./screens/About";
+
+const TabNavigator = createBottomTabNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <TabNavigator.Navigator>
+        <TabNavigator.Screen name="Dashboard" component={DashboardScreen} />
+        <TabNavigator.Screen name="About" component={AboutScreen} />
+      </TabNavigator.Navigator>
+    </NavigationContainer>
+  )
+}

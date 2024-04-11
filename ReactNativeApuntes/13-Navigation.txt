@@ -1,0 +1,56 @@
+//React Navigation npm i @react-navigation/native
+
+//npm install @react-navigation/native-stack (Permite una navegación con una mayor performance)
+
+Ejemplo de configuración para navegación
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { HomeScreen } from "./screens/HomeScreen";
+import { AboutScreen } from "./screens/AboutScreen";
+
+const Stack = createNativeStackNavigator()
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+
+Para navegar sin hook (solo en screen components)
+        <View styles={styles.container}>
+            <Text>Home Screen</Text>
+            <Button title="Go to about" onPress={() => navigation.navigate("About")} />
+        </View>
+
+Si quiero con hook 
+     const navigation = useNavigation()  y lo uso normalmente con navigation.navigate("ruta")
+
+
+Si quiero pasar props a una ruta
+
+        <View styles={styles.container}>
+            <Text>Home Screen</Text>
+            <Button title="Go to about" onPress={() => navigation.navigate("About", { name: 'Nahuel' })} />
+        </View>
+
+        y despues: 
+        export function AboutScreen({ route }) {
+            const { name } = route.params
+            return (
+                <View styles={styles.container}>
+                    <Text>About {name} Screen</Text>
+                </View>
+            )
+        }       
+
+
+Para navegaciones que van a necesitar screens dinamicas 
+https://www.youtube.com/watch?v=TIeSev8gAXM&list=PLC3y8-rFHvwhiQJD1di4eRVN30WWCXkg1&index=77
