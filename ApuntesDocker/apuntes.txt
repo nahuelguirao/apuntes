@@ -1,0 +1,61 @@
+#CONCEPTOS IMPORTANTES
+
+-Dockerfile => Archivo de texto plano con las directivas para que al compilarlas se conviertan en una Imagen 
+
+-Imagen => Versión compilada del dockerfile, para poder crear un contenedor a partir de esta
+
+-Container => Instanciación de la imagen, es el objeto con el que vamos a interactuar
+
+-Docker HUB => Sitio web con imagenes defaults 
+
+-Docker Daemon => Se ejecuta en segundo plano gestionando todo lo relacionado a docker 
+
+
+
+# COMANDOS BÁSICOS
+
+docker run 'imagen'  => incia un contenedor a partir de una imagen 
+
+docker pull 'imagen' => Trae una imagen 
+
+docker image ls => Ver todas las imagenes disponibles en la máquina
+
+
+# COMANDOS DOCKER CONTAINER 
+
+docker container 'comando' (opcional) 'containerID o name'
+    - ls => Muestra los containers en uso, si agregamos -a incluye los inactivos
+    - run => Crea y corre un container a aprtir de una imagen 
+    - star => Inicia un contenedor 
+    - stop => Lo para 
+    - inspect => Información del contenedor 
+    - rm => Elimina un contenedor 
+    - prune => Elimina TODOS los contenedores detenidos 
+
+    + Info docker container --help 
+
+-ponerle nombre al container => docker run -p 'port' --name 'nombreContainer' 'imagen'
+-saber port de un container => docker container port "id o name" 
+-debuggear el container (logs) => docker logs 'id o name' (si agrego -f se mantiene activo en tiempo real)
+-definir variables de entorno => docker container run -d -p 'port' -e VARIABLE_1=valor -e VARIABLE_2=valor 
+
+
+# COMANDOS INTERACTIVOS CON UN CONTAINER 
+
+-Carpetas dentro del contenedor => docker exec 'ID o name' ls 
+
+-Generar un bash => docker exect 'id o name' bash 
+
+
+# VOLÚMENES
+
+=> Tanto imagenes, volumenes, redes y demas suelen tener los mismos comandos como ls o ps 
+
+Los volúmenes sirven para guardar elementos/data en el disco duro independientemente si el contenedor lo paramos, borramos y demas 
+
+docker volume ls => todos los volumenes 
+docker volume inspect 'name o id' => Info del volumen 
+docker volume create 'name' => Crea un volumen 
+
+Ejemplo de crear volumen al runear un container 
+docker run -dit -v nombreVolumen:/rutaDentroContainer --name prueba 'imagen' 

@@ -1,0 +1,31 @@
+#Docker compose nos permite ejecutar varios contenedores en un mismo servicio al mismo tiempo
+
+#Todos los servicios (cada uno será un contenedor)
+services:
+  python:
+    image: python
+    #permite ejecutar comandos dentro del contenedor y ver su salida en tiempo real.
+    tty: true
+    container_name: python
+    #Defnir volúmenes (Primero ruta que quiero copiar local y luego la ruta que tendra en el contenedor)
+    volumes:
+      - .:/scripts
+  mysql:
+    image: mysql
+    container_name: mysql
+    #Para gestionar puertos en formato de array yml:
+    ports:
+      - "3312:3306"
+    volumes:
+      #Agrega en el volumen general 'db-data' en la ruta /var/lib/mysql
+      - db-data:/var/lib/mysql
+    #Variables de entorno
+    environment:
+      - MYSQL_ROOT_PASSWORD=${PASSWORD_MYSQL}
+
+#Volumenes generales que pueden usar todos los contenedores de un servicio
+volumes:
+  db-data:
+#Para levantar un servicio docker-compose up -d (genera una red propia conjunto a los contenedores)
+
+#Para eliminar todo incluyendo la red dock-compose down

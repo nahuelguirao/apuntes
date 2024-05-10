@@ -1,0 +1,50 @@
+#Definimos que imagen queremos
+FROM ubuntu 
+
+#Para definir variables de entorno, es decir comportamiento estatico (puedo definir varias ENV)
+ENV VARIABLE_GLOBAL=1234 
+ENV VERSION=1.0
+
+#Para definir argumentos, es decir comportamiento dinámico (pueden cambiar al buildear si alguien quiere usar otro editor al buildear el contaienr puede especificarlo)
+ARG TEXT_EDITOR=nano
+
+#Que comandos queremos ejecutar (se suelen instalar paquetes)
+RUN apt-get update && apt-get install -y \
+    python3 \
+    curl \
+    nano \
+    nginx \
+    $TEXT_EDITOR
+
+#Copia archivos de la computadora hacia el contenedor primero se pone la ruta local y luego la ruta que tendrá en el contenedor
+COPY . /app
+
+#Permite definir un entorno de trabajo (ruta que va a aparecer como inicial)
+WORKDIR /app
+
+#Para ejecutar comandos durante la construcción del contenedor
+RUN npm install #Por ejemplo instalación de dependencias si fuera un container de node
+
+#Para ejecutar comandos apenas se inicializa el container ["comando", "arg1", "arg2"...]
+CMD ["nginx", "-g", "daemon off;"]
+
+#IMPORTANTE! CMD puede ser sobreescrito por eso si necesitamos un comando que no sea sobreescrito
+ENTRYPOINT ["comando", "arg1","arg2"]
+
+
+#Para compilar la imagen
+# -t es para darle una etiqueta a la imagen
+# docker build -t ubuntu-with-python "ruta" si es la misma carpeta solo ponemos '.'
+
+
+#EJEMPLO EJECUTAR SCRIPT PYTHON
+FROM ubuntu
+
+RUN apt-get update && apt-get install -y \
+    python3
+
+COPY . /app 
+
+WORKDIR /app 
+
+ENTRYPOINT ["python3", "prueba.py"]
