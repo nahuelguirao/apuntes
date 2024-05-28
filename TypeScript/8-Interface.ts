@@ -1,3 +1,5 @@
+//Las interfaces se pueden extender sin que nosotros lo hagamos explicitamente solo creando otra interfaz con el mismo nombre
+
 //Tipado personalizado se definen los tipos primero y luego se lo iguala al crear el objeto
 interface Programador2 {
   nombre: string;
