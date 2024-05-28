@@ -1,0 +1,82 @@
+## BÁSICO
+git init  => Inicia repositorio
+
+git status => ver estado de archivos del repositorio (con -s hace version mas corta)
+
+git add => agrega archivos al repo para posteriormente commitearlos (git add nombre o git add . si quiero agregar todos)
+
+git commit -m "mensaje" => guarda cambios en el repo  (git commit -a hace el commit directo sin mensaje)
+
+git restore nombreArchivo => restora el archivo eliminado en stage
+
+git checkout => vuelve atras en el tiempo (desde el último commit ya sea archivos puntuales o commits completos, sin eliminar los últimos estados)
+
+git show nombreArchivo => refleja cambios en un archivo (comparandolo con el que esta guardado en el último commit)
+
+git diff --staged => refleja cambios teniendo en cuenta el stage (rojo es lo que esta commiteado, verde las modificaciones)
+
+git log => registro de commits hechos (--oneline resumen, --oneline --all muestra lo de todas las ramas)
+
+git commit --amend (para poder modificar un commit sin tener que hacer uno nuevo, RECORDAR usar .add para agregar los archivos q nos faltaron o agregamos cambios)
+
+
+
+######
+GIT RESET
+
+git reset nombreArchivo => sirve para volver el tiempo en el area de staging (cuando usamos add)
+
+git reset --soft hashCommit => sirve para mover el head/puntero a ese commit y 'eliminar' los siguientes (IMPORTANTE! los cambios que estan en esos commits que se 'borran' pasan a stage)
+
+git reset --hard hashCommit => CUIDADO! elimina todos los commits posteriores a donde movemos el head pero no guarda en stage los cambios (se va a volver al archivo identico al commit al que estamos volviendo)
+
+si despues de un git reset --hard hago git push --force elimina los commits posteriores al que retrocedimos
+######
+
+
+
+###
+RAMAS
+
+git branch => ver todas las RAMAS
+
+git branch nombre-rama => crear una rama (kebab case)
+
+git switch nombre-rama => cambiar entre ramas
+
+git branch -d nombre-rama => elimina una rama
+
+git branch -m nombre-rama nuevo-nombre => modificar rama (SOLO desde una rama que no es la que estamos modificando)
+
+git branch -m nuevo-nombre => modificar desde la misma rama que quiero modificar
+
+git merge nombre-rama => para mergear una rama (IMPORTANTE! desde la rama main o la que quiere recibir el mergeo)
+###
+
+
+### 
+GIT IGNORE (.gitignore) => sirve solo para archivos que no fueron rastreados por GIT
+
+*.txt => ignoraría todos los archivos .txt
+
+!readme.txt => asi ignoraria TODOS los .txt menos el readme
+###
+
+
+
+## ALIAS PARA VER MAS FACIL EL ARBOL DE COMMITS
+git config --global alias.tree "log --oneline --graph --all --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
+
+
+
+git reflog => lleva un registro de todos los movimientos del head (para recuperar commits 'perdidos')
+
+git clone url => clonar repo
+
+git push => subir cambios
+ 
+git push origin => cuando queremos subir cambios y mandarlos al repo que clonamos
+
+git fetch => solamente corrobora si hay cambios en el repo de origen
+
+git pull => verifica si hay cambios en el repositorio de origen y si los hay los trae
