@@ -3,7 +3,12 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send('Main route')
+    //Setear una cooki
+    res.cookie('cookie', 'Token')
+    //Setear un header
+    res.set('custom header', '1234')
+
+    res.end()
 })
 
 //Enviar archivos (ya sea audios, pdf y demas)

@@ -1,20 +1,28 @@
 const { createReadStream } = require('fs')
 
-//Sirve para ir emitiendo un archivo pesado por partes
-const stream = createReadStream('./data/bigFile.txt', 'utf-8')
+//Sirve para ir emitiendo un archivo pesado por partes a traves de un stream (Enviando buffers que contienen datos en su interior)
+const readableStream = createReadStream('./data/bigFile.txt', 'utf-8')
+const writableStream = fs.createWriteStream('copia.txt', 'utf-8')
 
 //Siempre que quede data por recorrer la escucha y la muestra
-stream.on('data', (chunk) => {
-    console.log(chunk)
+readableStream.on('data', (chunk) => {
+    //Cada que recibe un chunk lo escribe en el archivo
+    writableStream.write(chunk)
 })
 
-stream.on('end', () => {
-    console.log('Terminó.')
+readableStream.on('end', () => {
+    console.log('Libro finalizado.')
+    writableStream.end()
 })
 
-stream.on('error', (err) => {
-    console.error(err)
+writableStream.on('finish', () => {
+    console.log('Copia de libro finalizada.')
 })
+
+readableStream.on('error', (err) => {
+    console.log('Error al leer libro: ', err)
+})
+
 
 
 

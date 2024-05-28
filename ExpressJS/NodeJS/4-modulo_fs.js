@@ -36,3 +36,27 @@ async function allFiles() {
 }
 
 allFiles()
+
+
+//////////////////
+const fs = require('fs').promises
+
+async function main() {
+    try {
+        //Leer un file
+        const data = await fs.readFile('archivo1.txt', 'utf-8');
+        console.log("Contenido: ", data);
+        //Escribir un file
+        await fs.writeFile("output.txt", 'Contenido agregado', "utf-8");
+        //Copiar un file
+        await fs.copyFile("archivo3.txt", "copy.txt");
+        //Renombrar un file
+        await fs.rename('copy.txt', 'new-copy.txt');
+        //Eliminar un file 
+        await fs.unlink('new-copy.txt')
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+}
+
+main()
